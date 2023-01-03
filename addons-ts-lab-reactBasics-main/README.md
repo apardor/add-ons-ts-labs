@@ -13,3 +13,5 @@ The goal of this lab is to get familiar with TypeScript in React. Make sure to r
 
 
 When you're finished, check out a suggested solution on the solution branch if you want.
+
+«
