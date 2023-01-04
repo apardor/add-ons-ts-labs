@@ -19,13 +19,9 @@ const App: FC = () => {
       setAge(res.results[0].registered.age);
       setGender(res.results[0].gender);
       setAddress(`${res.results[0].location.city}, ${res.results[0].location.country} - ${res.results[0].location.street.name} ${res.results[0].location.street.number} - postcode: ${res.results[0].location.postcode}`);
-      console.log(res.results[0]);
-      
   })
     .catch(err => setError(err))
   },[])
-
-  console.log(name, 'here is name');
   
   return (
     <div className="App">
