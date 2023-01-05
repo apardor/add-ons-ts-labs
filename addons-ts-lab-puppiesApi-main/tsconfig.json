@@ -4,7 +4,7 @@
     "module": "commonjs",
     "sourceMap": true,
     "outDir": "./dist",
-    "strict": true,
+    "strict": false,
     "lib": ["esnext"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -19,6 +19,7 @@
     "inlineSources": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   }
 }

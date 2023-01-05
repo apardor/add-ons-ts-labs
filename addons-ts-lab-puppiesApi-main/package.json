@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "tsc *.ts --outDir js",
     "compile:watch": "npm run compile -- --watch *.ts",
-    "test": "jest --watch --silent"
+    "test": "jest --watch --silent",
+    "dev": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/appliedtechnology/addons-ts-lab-puppiesApi#readme",
   "dependencies": {
+    "@prisma/client": "^4.8.0",
     "express": "^4.17.3"
   },
   "devDependencies": {
