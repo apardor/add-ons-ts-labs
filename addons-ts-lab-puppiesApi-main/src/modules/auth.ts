@@ -1,25 +1,26 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import { NextFunction, Request, Response } from 'express';
 
-export const comparePasswords = (password, hash) =>{
+export const comparePasswords = (password: string, hash: string) =>{
     return bcrypt.compare(password, hash)
 }
 
-export const hashPassword = (password) => {
+export const hashPassword = (password: string) => {
     return bcrypt.hash(password, 5)
 }
 
-export const createJWT = (puppy) =>{
+export const createJWT = (user) =>{
     const token = jwt.sign({
-        id: puppy.id,
-        name: puppy.name
+        id: user.id,
+        username: user.username
         },
          process.env.JWT_SECRET
         );
     return token;
 }
 
-export const protect = (req, res, next) => {
+export const protect = (req: Request, res: Response, next: NextFunction) => {
     const bearer = req.headers.authorization;
 
     if(!bearer){
@@ -37,8 +38,8 @@ export const protect = (req, res, next) => {
     }
 
     try{
-        const puppy = jwt.verify(token, process.env.JWT_SECRET);
-        req.puppy = puppy;
+        const user = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = user;
         next()
     } catch(e) {
         console.log(e);
