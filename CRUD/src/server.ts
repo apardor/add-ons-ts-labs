@@ -4,7 +4,9 @@ import mongoose from 'mongoose';
 import { resolveTypeReferenceDirective } from 'typescript';
 import { config } from './config/config';
 import Logging from './library/Logging';
-import ownerRoutes from './routes/Owner'
+import ownerRoutes from './routes/Owner';
+import puppyRoutes from './routes/Puppies'
+
 
 
 const router = express();
@@ -51,7 +53,8 @@ const StartServer = () => {
     });
 
     /** Routes */
-    router.use('/owners', ownerRoutes)
+    router.use('/owners', ownerRoutes);
+    router.use('/api', puppyRoutes)
 
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ message: 'pong' }));
